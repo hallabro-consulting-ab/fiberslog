@@ -1,0 +1,40 @@
+name: Build
+on:
+  push:
+    branches:
+      - master
+  pull_request_target:
+
+env:
+  GOPRIVATE: github.com/hallabro-consulting-ab
+
+jobs:
+  test:
+    name: Tests
+    strategy:
+      matrix:
+        go: [ 1.20.x ]
+        os: [ ubuntu-22.04 ]
+    runs-on: ${{ matrix.os }}
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v3
+      - name: Cache Go modules
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cache/go-build
+            ~/go/pkg/mod
+          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-go-
+      - uses: actions/setup-go@v3
+        with:
+          go-version: ${{ matrix.go }}
+      - name: Get dependencies
+        run: |
+          go get -v ./...
+      - name: Run tests
+        run: make test

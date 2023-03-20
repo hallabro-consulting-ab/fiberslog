@@ -1,0 +1,29 @@
+on:
+  push:
+    branches:
+      - master
+  pull_request_target:
+name: Lint
+env:
+  GOPRIVATE: github.com/hallabro-consulting-ab
+jobs:
+  golangci:
+    strategy:
+      matrix:
+        go: [ 1.20.x ]
+        os: [ ubuntu-22.04 ]
+    name: Lint
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Go
+        uses: actions/setup-go@v3
+        with:
+          go-version: ${{ matrix.go }}
+      - name: Get dependencies
+        run: go get -v ./...
+      - name: Run golangci-lint
+        uses: golangci/golangci-lint-action@v3.3.1
+        with:
+          version: v1.51.0
+          skip-pkg-cache: true
