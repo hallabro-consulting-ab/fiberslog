@@ -122,10 +122,7 @@ func TestLog(t *testing.T) {
 				return tc.handlerErr
 			})
 
-			req := httptest.NewRequest(
-				"GET",
-				"/",
-				nil)
+			req := httptest.NewRequest("GET", "/", nil)
 			req.Header.Set("User-Agent", "test")
 
 			_, err := app.Test(req)
