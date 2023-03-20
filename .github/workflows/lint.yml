@@ -23,7 +23,7 @@ jobs:
       - name: Get dependencies
         run: go get -v ./...
       - name: Run golangci-lint
-        uses: golangci/golangci-lint-action@v3.3.1
+        uses: golangci/golangci-lint-action@v3.4.0
         with:
           version: v1.51.0
           skip-pkg-cache: true
