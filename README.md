@@ -1,5 +1,8 @@
 # fiberslog
 
+[![Build](https://github.com/hallabro-consulting-ab/fiberslog/actions/workflows/build.yml/badge.svg)](https://github.com/hallabro-consulting-ab/fiberslog/actions/workflows/build.yml)
+[![Lint](https://github.com/hallabro-consulting-ab/fiberslog/actions/workflows/lint.yml/badge.svg)](https://github.com/hallabro-consulting-ab/fiberslog/actions/workflows/lint.yml)
+
 fiberslog is a [golang.org/x/exp/slog](https://pkg.go.dev/golang.org/x/exp/slog) logging middleware for [Fiber](https://github.com/gofiber/fiber), a web framework for Go.
 This middleware logs incoming HTTP requests and outgoing HTTP responses, including their respective status code, timestamp and latency.
 
