@@ -1,6 +1,6 @@
-# hallabro-consulting-ab/fiberslog
+# fiberslog
 
-hallabro-consulting-ab/fiberslog is a [golang.org/x/exp/slog](https://pkg.go.dev/golang.org/x/exp/slog) logging middleware for [Fiber](https://github.com/gofiber/fiber), a web framework for Go.
+fiberslog is a [golang.org/x/exp/slog](https://pkg.go.dev/golang.org/x/exp/slog) logging middleware for [Fiber](https://github.com/gofiber/fiber), a web framework for Go.
 This middleware logs incoming HTTP requests and outgoing HTTP responses, including their respective status code, timestamp and latency.
 
 ## Installation
@@ -8,7 +8,7 @@ This middleware logs incoming HTTP requests and outgoing HTTP responses, includi
 You can install the package via Go modules:
 
 ```sh
-go get hallabro-consulting-ab/fiberslog
+go get github.com/hallabro-consulting-ab/fiberslog
 ```
 
 ## Usage
