@@ -3,7 +3,7 @@ module github.com/hallabro-consulting-ab/fiberslog
 go 1.20
 
 require (
-	github.com/gofiber/fiber/v2 v2.42.0
+	github.com/gofiber/fiber/v2 v2.43.0
 	github.com/stretchr/testify v1.8.2
 	golang.org/x/exp v0.0.0-20230321023759-10a507213a29
 )
