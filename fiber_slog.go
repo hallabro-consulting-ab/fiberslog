@@ -68,7 +68,8 @@ func New(options ...Option) fiber.Handler {
 		start := time.Now()
 
 		msg := "incoming request"
-		if err := c.Next(); err != nil {
+		err := c.Next()
+		if err != nil {
 			msg = err.Error()
 		}
 
@@ -91,6 +92,6 @@ func New(options ...Option) fiber.Handler {
 			dumplogger.Info(msg)
 		}
 
-		return nil
+		return err
 	}
 }
